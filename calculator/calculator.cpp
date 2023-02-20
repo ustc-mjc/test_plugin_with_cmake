@@ -1,11 +1,13 @@
 //
 // Created by mojucheng on 2023/2/17.
 //
-#ifdef WIN32
-#pragma warning( disable : 4716)
-#endif
 
 #include "calculator.h"
+
+// windows not need define extern
+#ifdef _WIN32
+    #define EXPORT_API
+#endif
 
 EXPORT_API Caclulator::Caclulator() {}
 EXPORT_API Caclulator::Caclulator(const std::string &version) : _version(version) {}
@@ -25,7 +27,7 @@ PluginManager* Caclulator::_pluginManager = new PluginManager();
 
 EXPORT_API int Caclulator::add(int a, int b) {
     typedef int(*padd)(int ,int);
-    std::string pluginName = "libadd";
+    std::string pluginName = "add";
     bool status =  _pluginManager->load(pluginName);
     if (!status) {
         std::cout << "load libadd lib failed!" << std::endl;
@@ -39,7 +41,7 @@ EXPORT_API int Caclulator::add(int a, int b) {
 
 EXPORT_API int Caclulator::sub(int a, int b) {
     typedef int(*psub)(int ,int);
-    std::string pluginName = "libsub";
+    std::string pluginName = "sub";
     bool status = _pluginManager->load(pluginName);
     if (!status) {
         std::cout << "load libsub lib failed!" << std::endl;

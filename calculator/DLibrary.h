@@ -5,7 +5,7 @@
 #ifndef TEST_PLUGIN_DLIBRARY_H
 #define TEST_PLUGIN_DLIBRARY_H
 #include <string>
-#ifdef WIN32
+#ifdef _WIN32
     #include <Windows.h>
 #else
     #include <dlfcn.h>

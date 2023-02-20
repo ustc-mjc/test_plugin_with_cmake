@@ -58,7 +58,8 @@
 #endif
 
 
-#if defined WIN32 || defined __CYGWIN__
+// #if defined WIN32 || defined __CYGWIN__
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined (__CYGWIN__)
 #ifdef __cplusplus
 #define DLL_EXPORT_C_DECL extern "C" __declspec(dllexport)
 #define DLL_IMPORT_C_DECL extern "C" __declspec(dllimport)

@@ -12,7 +12,7 @@ DLibrary* DLibrary::load(const std::string &path) {
     }
     void* handle = NULL;
     // load library - OS dependent operation
-#ifdef WIN32
+#ifdef _WIN32
     handle = ::LoadLibraryA(path.c_str());
         if (!handle){
             fprintf(stderr, "Failed to load library \"%s\".\n", path.c_str());
@@ -34,7 +34,7 @@ DLibrary* DLibrary::load(const std::string &path) {
 
 DLibrary::~DLibrary(){
     if (handle){
-    #ifdef WIN32
+    #ifdef _WIN32
         ::FreeLibrary( (HMODULE)handle );
     #else
         ::dlclose(handle);
@@ -48,7 +48,7 @@ void* DLibrary::getSymbol(const std::string& symbol){
         return NULL;
     }
     void* res;
-#ifdef WIN32
+#if defined(_WIN32) || defined(__WIN32__) || defined (__CYGWIN__)
     res = (void*)(::GetProcAddress((HMODULE)handle, symbol.c_str()));
 #else
     res = (void*)(::dlsym(handle, symbol.c_str()));
