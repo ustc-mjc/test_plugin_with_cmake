@@ -1,0 +1,11 @@
+if (NOT BUILD_DEMO)
+    return()
+endif ()
+
+if(PLATFORM_MAC)
+    add_subdirectory(mac)
+elseif(PLATFORM_WINDOWS)
+elseif(PLATFORM_LINUX)
+elseif(PLATFORM_ANDROID)
+elseif(PLATFORM_IOS)
+endif ()
