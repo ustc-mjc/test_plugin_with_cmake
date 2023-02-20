@@ -1,6 +1,10 @@
 //
 // Created by mojucheng on 2023/2/17.
 //
+#ifdef WIN32
+#pragma warning( disable : 4716)
+#endif
+
 #include "calculator.h"
 
 EXPORT_API Caclulator::Caclulator() {}
