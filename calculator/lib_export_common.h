@@ -51,7 +51,7 @@
 #elif defined(SYS_MACOS)
 #define LIB_EXTENSION "dylib"
 #elif defined(SYS_LINUX) || defined(SYS_FREEBSD)
-#define IB_EXTENSION "so"
+#define LIB_EXTENSION "so"
 #else
    // unknown library file type
     #error Unknown library file extension for this operating system
