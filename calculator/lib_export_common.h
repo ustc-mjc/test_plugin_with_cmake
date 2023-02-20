@@ -72,10 +72,10 @@
 #endif
 #else
 #ifdef __cplusplus
-#define DLL_EXPORT_C_DECL __attribute__ ((visibility ("default"))) extern "C"
-#define DLL_IMPORT_C_DECL __attribute__ ((visibility ("default"))) extern "C"
-#define DLL_EXPORT_DECL __attribute__ ((visibility ("default"))) extern
-#define DLL_IMPORT_DECL __attribute__ ((visibility ("default"))) extern
+#define DLL_EXPORT_C_DECL extern "C" __attribute__((visibility ("default")))
+#define DLL_IMPORT_C_DECL extern "C" __attribute__((visibility ("default")))
+#define DLL_EXPORT_DECL extern __attribute__((visibility ("default")))
+#define DLL_IMPORT_DECL extern __attribute__((visibility ("default")))
 #define DLL_EXPORT_CLASS_DECL
 #define DLL_IMPORT_CLASS_DECL
 #else
