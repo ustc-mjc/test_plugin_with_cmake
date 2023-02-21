@@ -9,25 +9,24 @@
     #define EXPORT_API
 #endif
 
-EXPORT_API Caclulator::Caclulator() {}
-EXPORT_API Caclulator::Caclulator(const std::string &version) : _version(version) {}
+EXPORT_API Calculator::Calculator() {}
 
-EXPORT_API Caclulator::~Caclulator() {
+EXPORT_API Calculator::~Calculator() {
 
 }
-EXPORT_API void Caclulator::setVersion(std::string version) {
+EXPORT_API void Calculator::setVersion(std::string version) {
     _version = version;
 }
 
-EXPORT_API std::string Caclulator::getVersion() const {
+EXPORT_API std::string Calculator::getVersion() {
     return _version;
 }
+std::string Calculator::_version = "1.0.0";
+PluginManager* Calculator::_pluginManager = new PluginManager();
 
-PluginManager* Caclulator::_pluginManager = new PluginManager();
-
-EXPORT_API int Caclulator::add(int a, int b) {
+EXPORT_API int Calculator::add(int a, int b) {
     typedef int(*padd)(int ,int);
-    std::string pluginName = "add";
+    std::string pluginName = "libadd";
     bool status =  _pluginManager->load(pluginName);
     if (!status) {
         std::cout << "load libadd lib failed!" << std::endl;
@@ -39,9 +38,9 @@ EXPORT_API int Caclulator::add(int a, int b) {
     return plugin_add(a, b);
 }
 
-EXPORT_API int Caclulator::sub(int a, int b) {
+EXPORT_API int Calculator::sub(int a, int b) {
     typedef int(*psub)(int ,int);
-    std::string pluginName = "sub";
+    std::string pluginName = "libsub";
     bool status = _pluginManager->load(pluginName);
     if (!status) {
         std::cout << "load libsub lib failed!" << std::endl;

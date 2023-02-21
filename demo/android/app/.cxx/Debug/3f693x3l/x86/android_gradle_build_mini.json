@@ -1,0 +1,27 @@
+{
+  "buildFiles": [
+    "/Users/bytedance/CLionProjects/test_plugin/demo/android/app/src/main/cpp/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/Users/bytedance/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/Users/bytedance/CLionProjects/test_plugin/demo/android/app/.cxx/Debug/3f693x3l/x86",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/Users/bytedance/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/Users/bytedance/CLionProjects/test_plugin/demo/android/app/.cxx/Debug/3f693x3l/x86",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "app::@6890427a1f51a3e7e1df": {
+      "artifactName": "app",
+      "abi": "x86",
+      "output": "/Users/bytedance/CLionProjects/test_plugin/demo/android/app/build/intermediates/cxx/Debug/3f693x3l/obj/x86/libapp.so",
+      "runtimeFiles": []
+    }
+  }
+}

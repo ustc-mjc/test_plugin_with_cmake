@@ -10,18 +10,17 @@
 #include <string>
 #include <iostream>
 #include "plugin_manager.h"
-class EXPORT_CLASS Caclulator {
+class EXPORT_CLASS Calculator {
 private:
-    std::string _version = "1.0.0";
+    static std::string _version;
     static PluginManager* _pluginManager;
 
 public:
-    Caclulator();
-    explicit Caclulator(const std::string &version);
-    virtual ~Caclulator();
+    Calculator();
+    virtual ~Calculator();
 
-    void setVersion(std::string version);
-    std::string getVersion() const;
+    static void setVersion(std::string version);
+    static std::string getVersion();
     int add(int a, int b);
     int sub(int a, int b);
 };

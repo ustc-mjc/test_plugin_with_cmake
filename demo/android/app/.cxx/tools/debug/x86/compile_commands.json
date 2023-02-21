@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/Users/bytedance/CLionProjects/test_plugin/demo/android/app/.cxx/Debug/3f693x3l/x86",
+  "command": "/Users/bytedance/Library/Android/sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=i686-none-linux-android24 --sysroot=/Users/bytedance/Library/Android/sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -Dapp_EXPORTS -std=c++11 -g  -fno-limit-debug-info -fPIC -o CMakeFiles/app.dir/native-lib.cpp.o -c /Users/bytedance/CLionProjects/test_plugin/demo/android/app/src/main/cpp/native-lib.cpp",
+  "file": "/Users/bytedance/CLionProjects/test_plugin/demo/android/app/src/main/cpp/native-lib.cpp"
+}
+]

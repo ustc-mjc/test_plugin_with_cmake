@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 int main(int argc, const char** argv){
-    Caclulator calculator;
+    Calculator calculator;
     cout << "calculator's version: " << calculator.getVersion() << endl;
     int sum = calculator.add(1,1);
     cout << "calculator's add(1,1)=" << sum << endl;
