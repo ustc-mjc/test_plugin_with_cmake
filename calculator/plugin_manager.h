@@ -12,7 +12,7 @@ private:
 
 public:
     PluginManager();
-    bool load(std::string& path);
+    bool load(const std::string& path);
 
     bool load(const std::string& folder, const std::string& pluginName);
 
