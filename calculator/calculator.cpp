@@ -26,7 +26,7 @@ PluginManager* Calculator::_pluginManager = new PluginManager();
 
 EXPORT_API int Calculator::add(int a, int b) {
     typedef int(*padd)(int ,int);
-    std::string pluginName = "libadd";
+    std::string pluginName = "add";
     bool status =  _pluginManager->load(pluginName);
     if (!status) {
         std::cout << "load libadd lib failed!" << std::endl;
@@ -40,7 +40,7 @@ EXPORT_API int Calculator::add(int a, int b) {
 
 EXPORT_API int Calculator::sub(int a, int b) {
     typedef int(*psub)(int ,int);
-    std::string pluginName = "libsub";
+    std::string pluginName = "sub";
     bool status = _pluginManager->load(pluginName);
     if (!status) {
         std::cout << "load libsub lib failed!" << std::endl;

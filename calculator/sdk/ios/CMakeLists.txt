@@ -1,14 +1,14 @@
 # cmake -G"Xcode" -Bbuild -DTARGET_PLATFORM=ios -DPLATFORM=OS64COMBINED .
 
 # add objc source
-target_sources(calculator PRIVATE CalculatorApple.h CalculatorApple.mm)
+target_sources(${SDK_TARGET_NAME} PRIVATE CalculatorApple.h CalculatorApple.mm)
 
 # set default xcode properties
 if(PLATFORM_APPLE)
-  target_apply_xcode_default_config(calculator)
+  target_apply_xcode_default_config(${SDK_TARGET_NAME})
   if(GEN_FRAMEWORK)
     set_target_properties(
-      calculator
+      ${SDK_TARGET_NAME}
       PROPERTIES FRAMEWORK TRUE
                  FRAMEWORK_VERSION A
                  MACOSX_FRAMEWORK_IDENTIFIER com.example.calculator
@@ -20,10 +20,13 @@ if(PLATFORM_APPLE)
                  SOVERSION 1.0.0
                  # PUBLIC_HEADER CalculatorApple.h
     )
-    target_set_xcode_property(calculator DEFINES_MODULE "YES")
-    target_set_xcode_property(calculator PRODUCT_BUNDLE_IDENTIFIER
+    target_set_xcode_property(${SDK_TARGET_NAME} DEFINES_MODULE "YES")
+    target_set_xcode_property(${SDK_TARGET_NAME} PRODUCT_BUNDLE_IDENTIFIER
                               "com.example.calculator")
-
+    # not need code sign
+    set_target_properties(
+      ${SDK_TARGET_NAME} PROPERTIES XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY ""
+                                    XCODE_ATTRIBUTE_CODE_SIGN_ENTITLEMENTS "")
     # target_set_xcode_property( FRAMEWORK_VERSION 1.0.0)
     # target_set_xcode_property(calculator DEFINES_MODULE "YES")
     # target_set_xcode_property(calculator PRODUCT_BUNDLE_IDENTIFIER
@@ -37,3 +40,9 @@ if(PLATFORM_APPLE)
   endif()
 
 endif(PLATFORM_APPLE)
+
+set(DEFAULT_SUBSPECS "'Core'")
+string(APPEND DEFAULT_SUBSPECS ", 'add'")
+string(APPEND DEFAULT_SUBSPECS ", 'sub'")
+
+configure_file(podspec.cmake ${SDK_TARGET_NAME}.podspec)

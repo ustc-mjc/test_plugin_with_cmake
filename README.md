@@ -33,6 +33,9 @@ dumpbin
 > 使用ios.cmake工具链
 > 包管理器为CocoaPods
 > 编译IDE为xcode，编译管理器为xcodebuild，编译器为clang
+```
+cmake -GXcode -Bbuild_ios -DPLATFORM=OS64COMBINED -DTARGET_PLATFORM=ios
+```
 ## 库
 默认会编译dylib和dylib.dSYM
 
