@@ -45,4 +45,4 @@ set(DEFAULT_SUBSPECS "'Core'")
 string(APPEND DEFAULT_SUBSPECS ", 'add'")
 string(APPEND DEFAULT_SUBSPECS ", 'sub'")
 
-configure_file(podspec.cmake ${SDK_TARGET_NAME}.podspec)
+configure_file(podspec.cmake ${CMAKE_BINARY_DIR}/${SDK_TARGET_NAME}.podspec)
