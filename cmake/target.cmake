@@ -1,0 +1,1 @@
+set(SDK_TARGET_NAME calculator)

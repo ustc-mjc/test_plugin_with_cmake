@@ -176,3 +176,24 @@ macro(target_apply_xcode_default_config target)
   endif()
 endmacro()
 
+# copy framework to app target
+macro(target_copy_framework target framework)
+  if(PLATFORM_APPLE)
+    if(PLATFORM_IOS)
+      # If framework is ios platform, then check Info.plist
+      add_custom_command(
+        TARGET ${target}
+        POST_BUILD
+        COMMAND /bin/bash ${PROJECT_CMAKE_ROOT}/scripts/install_framework.sh ${framework} false
+      )
+    else()
+      # If framework is macos platform, don't check Info.plist
+      add_custom_command(
+        TARGET ${target}
+        POST_BUILD
+        COMMAND /bin/bash ${PROJECT_CMAKE_ROOT}/scripts/install_framework.sh ${framework} false
+      )
+    endif()
+  endif()
+endmacro(target_copy_framework)
+

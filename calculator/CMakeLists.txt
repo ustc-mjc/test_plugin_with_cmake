@@ -2,7 +2,6 @@ if(NOT BUILD_SDK)
   return()
 endif()
 
-set(SDK_TARGET_NAME calculator)
 # main sdk
 add_library(${SDK_TARGET_NAME} SHARED calculator.cpp dir.cpp DLibrary.cpp
                                       plugin_manager.cpp)

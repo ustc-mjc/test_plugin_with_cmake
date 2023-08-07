@@ -264,6 +264,7 @@ if(NOT DEFINED DEPLOYMENT_TARGET)
     # Unless specified, SDK version 11.0 (Big Sur) is used by default as minimum target version for universal builds.
     set(DEPLOYMENT_TARGET "11.0")
   elseif(PLATFORM STREQUAL "MAC_CATALYST" OR PLATFORM STREQUAL "MAC_CATALYST_ARM64")
+    set(CMAKE_XCODE_ATTRIBUTE_SUPPORTS_MACCATALYST YES)
     # Unless specified, SDK version 13.0 is used by default as the minimum target version (mac catalyst minimum requirement).
     set(DEPLOYMENT_TARGET "13.1")
   else()

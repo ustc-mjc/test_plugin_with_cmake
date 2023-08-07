@@ -41,6 +41,9 @@ set(CMAKE_CXX_VISIBILITY_PRESET hidden)
 # detect platform
 include(${PROJECT_CMAKE_ROOT}/platform.cmake)
 
+# include target.cmake
+include(${PROJECT_CMAKE_ROOT}/target.cmake)
+
 # include toolchian
 if(PLATFORM_APPLE)
 	include(${PROJECT_CMAKE_ROOT}/toolchains/apple/ios.toolchain.cmake)

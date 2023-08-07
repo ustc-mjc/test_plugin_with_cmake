@@ -24,6 +24,12 @@ target_set_xcode_property(${IOS_DEMO_TARGET} CURRENT_PROJECT_VERSION "1.0.0")
 target_set_xcode_property(${IOS_DEMO_TARGET} PRODUCT_BUNDLE_IDENTIFIER
                           "com.example.test.ios_app")
 
+target_link_libraries(${IOS_DEMO_TARGET} PRIVATE "-framework ${SDK_TARGET_NAME}")
+target_copy_framework(${IOS_DEMO_TARGET} ${SDK_TARGET_NAME})
+# if(PLATFORM_IOS)
+#   target_include_directories(${IOS_DEMO_TARGET} PRIVATE ${PROJECT_ROOT}/calculator/sdk/ios)
+# endif(PLATFORM_IOS)
+
 # if(DEFINED CODE_SIGN_IDENTITY) target_set_xcode_property(${IOS_DEMO_TARGET}
 # CODE_SIGN_IDENTITY "${CODE_SIGN_IDENTITY}" Release)
 # target_set_xcode_property(${IOS_DEMO_TARGET} CODE_SIGN_IDENTITY "Apple
@@ -65,6 +71,12 @@ target_set_xcode_property(${IOS_DEMO_TARGET} INSTALL_PATH "Release-iphoneos"
 target_link_libraries(
   ${IOS_DEMO_TARGET} PRIVATE "-framework Foundation" "-framework CoreVideo"
                              "-framework Security" "-framework UIKit")
+if(${PLATFORM} STREQUAL "MAC_CATALYST_ARM64")
+  target_set_xcode_property(${IOS_DEMO_TARGET} CODE_SIGN_STYLE "Automatic")
+  target_set_xcode_property(${IOS_DEMO_TARGET} CODE_SIGN_IDENTITY "Apple Development")
+  target_set_xcode_property(${IOS_DEMO_TARGET} DEVELOPMENT_TEAM "9Z6F9FDG85")
+endif()
+
 # add_custom_target( iosarchive COMMAND ${CMAKE_COMMAND} -E env
 # DEVELOPER_DIR=${RTC_XCODE_DEVELOP_DIR} xcodebuild -workspace
 # ${PROJECT_NAME}.xcworkspace -scheme ${IOS_DEMO_TARGET} -arch arm64

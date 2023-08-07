@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
+#define APPLE_EXPORT __attribute__((visibility("default")))
 
-@interface CalculatorApple : NSObject
+APPLE_EXPORT @interface CalculatorApple : NSObject
 
 + (NSString *)getVersion;
 - (NSInteger)add:(NSInteger) a second: (NSInteger) b;
